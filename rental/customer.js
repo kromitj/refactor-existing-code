@@ -12,11 +12,8 @@ class Customer {
 		var totalAmount = 0
 		this.rentals.forEach((rental) => {
 			totalAmount += rental.charge
+			frequentRenterPoints += rental.getFrequentRenterPoints()
 			result += `\t ${rental.movie.title} \t ${rental.charge} \n`
-			frequentRenterPoints++
-			if (rental.movie.priceCode === 1 && rental.daysRented > 1) {
-				frequentRenterPoints++
-			} 
 
 		})
 		result += `Amount Owed is ${totalAmount} \n`
