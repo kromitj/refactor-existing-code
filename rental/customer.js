@@ -24,23 +24,23 @@ class Customer {
 			result += `You Earned: ${frequentRenterPoints} frequent rental points \n`
 		console.log(result)
 	}
-	amountFor(rental) {
-		let thisAmount = 0
-		if (rental.movie.priceCode === 0) {
-			thisAmount += 2
-			if (rental.daysRented > 2) 
+	amountFor(aRental) {
+		let result = 0
+		if (aRental.movie.priceCode === 0) {
+			result += 2
+			if (aRental.daysRented > 2) 
 			{
-				thisAmount += (rental.daysRented - 2) * 1.5
+				result += (aRental.daysRented - 2) * 1.5
 			}
-		} else if (rental.movie.priceCode === 1) {
-			thisAmount += rental.daysRented*3
-		} else if (rental.movie.priceCode ===2) {
-			thisAmount += 1.5
-			if (rental.daysRented > 3) { 
-				thisAmount += (rental.daysRented - 3) * 1.5
+		} else if (aRental.movie.priceCode === 1) {
+			result += aRental.daysRented*3
+		} else if (aRental.movie.priceCode ===2) {
+			result += 1.5
+			if (aRental.daysRented > 3) { 
+				result += (aRental.daysRented - 3) * 1.5
 			}
 		}
-		return thisAmount
+		return result
 	}
 }
 
