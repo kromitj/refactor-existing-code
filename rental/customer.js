@@ -9,18 +9,17 @@ class Customer {
 	statement() {
 		let frequentRenterPoints = 0
 		let result = (`Rental Record  for ${this.name} \n`)
-		var thisAmount = 0
+		var totalAmount = 0
 		this.rentals.forEach((rental) => {
-			let rentalAmount = rental.getCharge()
-			thisAmount += rentalAmount 
-			result += `\t ${rental.movie.title} \t ${rentalAmount} \n`
+			totalAmount += rental.charge
+			result += `\t ${rental.movie.title} \t ${rental.charge} \n`
 			frequentRenterPoints++
 			if (rental.movie.priceCode === 1 && rental.daysRented > 1) {
 				frequentRenterPoints++
 			} 
 
 		})
-		result += `Amount Owed is ${thisAmount} \n`
+		result += `Amount Owed is ${totalAmount} \n`
 			result += `You Earned: ${frequentRenterPoints} frequent rental points \n`
 		console.log(result)
 	}	
